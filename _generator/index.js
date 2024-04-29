@@ -16,8 +16,8 @@ module.exports = (plop) => {
       //Create Controller File
       {
         type: 'add',
-        path: '../repositories/{{ kebabCase name}}-repository.ts',
-        templateFile: './templates/repositories/index.hbs',
+        path: '../app/Http/Controllers/{{ pascalCase name}}Controller.php',
+        templateFile: './templates/controller/index.hbs',
       }
     ]
   });
