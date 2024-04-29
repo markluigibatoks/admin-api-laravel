@@ -1,9 +1,9 @@
 const pluralize = require('pluralize')
-
-
+const _ = require('lodash')
 
 module.exports = (plop) => {
   plop.setHelper('plural', txt => pluralize(txt))
+  plop.setHelper('pluralSnakeCase', txt => _.snakeCase(pluralize(txt)))
 
   plop.setGenerator('module', {
     description: 'application module logic',

@@ -17,12 +17,12 @@ class {{pascalCase name}}Controller extends Controller
      */
     public function index()
     {
-        $users = QueryBuilder::for(User::class)
+        ${{camelCase name}} = QueryBuilder::for({{pascalCase name}}::class)
             ->defaultSort('-created_at')
-            ->allowedFilters(Schema::getColumnListing('users'))
-            ->allowedSorts(Schema::getColumnListing('users'))
+            ->allowedFilters(Schema::getColumnListing('{{pluralSnakeCase name}}'))
+            ->allowedSorts(Schema::getColumnListing('{{pluralSnakeCase name}}'))
             ->paginate();
-        return new UserCollection($users);
+        return new UserCollection(${{camelCase name}});
     }
 
     /**
@@ -32,33 +32,33 @@ class {{pascalCase name}}Controller extends Controller
     {
         $validated = $request->validated();
 
-        return new UserResource($validated);
+        return new {{pascalCase name}}Resource($validated);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show({{pascalCase name}} ${{camelCase name}})
     {
-        return new UserResource($user);
+        return new {{pascalCase name}}Resource(${{camelCase name}});
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, {{pascalCase name}} ${{camelCase name}})
     {
         $validated = $request->validated();
   
-        return new UserResource($validated);
+        return new {{pascalCase name}}Resource($validated);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy({{pascalCase name}} ${{camelCase name}})
     {
-        $user->delete();
+        ${{camelCase name}}->delete();
 
         return response()->noContent();
     }
