@@ -1,0 +1,1 @@
+php artisan make:model TestBerry -m && php artisan make:resource TestBerryResource && php artisan make:resource TestBerryCollection && npm run make:resource TestBerry
