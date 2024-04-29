@@ -7,9 +7,11 @@ use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Support\Facades\Schema;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -17,6 +19,8 @@ class UserController extends Controller
     {
         $users = QueryBuilder::for(User::class)
             ->defaultSort('-created_at')
+            ->allowedFilters(Schema::getColumnListing('users'))
+            ->allowedSorts(Schema::getColumnListing('users'))
             ->paginate();
         return new UserCollection($users);
     }
