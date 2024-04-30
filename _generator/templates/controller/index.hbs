@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\{{name}}Collection;
-use App\Http\Resources\{{name}}Resource;
-use App\Models\{{name}};
+use App\Http\Resources\\{{pascalCase name}}Collection;
+use App\Http\Resources\\{{pascalCase name}}Resource;
+use App\Models\\{{pascalCase name}};
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +22,7 @@ class {{pascalCase name}}Controller extends Controller
             ->allowedFilters(Schema::getColumnListing('{{pluralSnakeCase name}}'))
             ->allowedSorts(Schema::getColumnListing('{{pluralSnakeCase name}}'))
             ->paginate();
-        return new UserCollection(${{camelCase name}});
+        return new {{pascalCase name}}Collection(${{camelCase name}});
     }
 
     /**
