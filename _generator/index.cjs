@@ -27,6 +27,12 @@ module.exports = (plop) => {
         path: '../routes/api.php',
         pattern: /\/\/apiResource/,
         templateFile: './templates/apiRoutes/index.hbs',
+      },
+      {
+        type: 'append',
+        path: '../routes/api.php',
+        pattern: /\/\/controllers/,
+        templateFile: './templates/apiRoutes/controllers.hbs',
       }
     ]
   });
